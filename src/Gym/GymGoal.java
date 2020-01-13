@@ -10,5 +10,7 @@ package Gym;
  * @author Morgan
  */
 public enum GymGoal {
+    BiggerByTheDay,
+    SmallerByTheDay
     
 }
