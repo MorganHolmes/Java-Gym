@@ -18,7 +18,8 @@ public interface GymInterface{
     public void addEquipment();
     
     public String getMembers();
-    public String addMembers();
+    public void addMember();
+    public void removeMember();
     
     
    

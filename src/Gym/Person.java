@@ -1,14 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Gym;
 
 /**
  *
  * @author Morgan
  */
-public class Person {
+public abstract class Person {
+    //Attributes
+    private String forename;
+    private String surname;    
+    private int age;
     
+    //Constructor
+    public Person(String forename, String surname, int age){
+        this.forename = forename;
+        this.surname = surname;
+        this.age = age;
+    }
+   
+
+    //Methods
+    public String getFullName(){
+        return forename + " " + surname;
+    }
+    
+    public String getForename(){
+        return forename;
+    }
+    
+    public int getAge(){
+       return age;
+    }
+    
+    public String toString(){
+        return "Forename: " + forename + "\nSurname: " + surname + "\nAge: " + age;
+    }
 }
