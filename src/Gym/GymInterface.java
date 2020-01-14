@@ -7,9 +7,9 @@ package Gym;
 public interface GymInterface{
     //Methods
     public String getAllStaff();
-    public String getStaff();
-    public void addStaff();
-    public void removeStaff();
+    public String getStaff(int staffNumber);
+    public void addStaff(Staff newStaff);
+    public void removeStaff(int staffNumber);
     
     public void addClass();
     public void removeClass();
