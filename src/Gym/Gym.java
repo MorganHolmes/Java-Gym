@@ -3,6 +3,8 @@ package Gym;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.*;
+
 
 /**
  *
@@ -27,17 +29,33 @@ public class Gym implements GymInterface {
     
     //Methods
     public String getAllStaff(){
-        return "";
-    };
-    public String getStaff(){
-        return " ";
+        String staffDet = "";
+        for (Map.Entry mapElement : staff.entrySet()) { 
+            //String key = (String)mapElement.getKey(); 
+  
+            Staff temp = (Staff)mapElement.getValue();
+            staffDet = staffDet + temp.toString();
+ 
+        } 
+        
+        return staffDet;
     };
     
-    public void addStaff(){
-        
+    public String getStaff(int staffNum){
+        if(staff.get(staffNum) == null){
+            return "No Staff With The Searched Number";
+        }else{
+            return staff.get(staffNum).toString();
+        }
+    };
+    
+    public void addStaff(Staff newStaff){
+        staff.put(newStaff.getNum(),newStaff);
     }
     
-    public void removeStaff(){
+    public void removeStaff(int staffNumber){
+        //Removes the staff from the hashmap [MWH]
+        staff.remove(staffNumber);
         
     }
    
