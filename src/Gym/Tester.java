@@ -15,6 +15,7 @@ public class Tester {
         System.out.println(staffOne.toString());
         Member memOne = new Member("Morgan","Holmez",21,177,177.8,GymGoal.BiggerByTheDay);
         System.out.println(memOne.toString());
+        System.out.println(memOne.getNum());
     
         
     }

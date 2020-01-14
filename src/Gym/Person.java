@@ -10,12 +10,14 @@ public abstract class Person {
     private String forename;
     private String surname;    
     private int age;
+    private static int uniNum = 0;
     
     //Constructor
     public Person(String forename, String surname, int age){
         this.forename = forename;
         this.surname = surname;
         this.age = age;
+        uniNum++;
     }
    
 
@@ -32,7 +34,11 @@ public abstract class Person {
        return age;
     }
     
+    public int getNum(){
+        return uniNum;
+    }
+    
     public String toString(){
-        return "Forename: " + forename + "\nSurname: " + surname + "\nAge: " + age;
+        return "Number: " + getNum() + "\nForename: " + forename + "\nSurname: " + surname + "\nAge: " + age;
     }
 }
