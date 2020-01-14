@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Gym;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -11,8 +10,20 @@ package Gym;
  */
 public class Gym implements GymInterface {
     //Attributes
+    private String gymName;
+    private ArrayList<Class> classes = new ArrayList<Class>();
+    private ArrayList<Equipment> gymEquipment = new ArrayList<Equipment>();
+    private HashMap<Integer,Member> gymMembers = new HashMap<Integer,Member>();
+    private HashMap<Integer,Staff> staff = new HashMap<Integer,Staff>();
     
     
+    public Gym(String gymName){
+        this.gymName = gymName;
+        setUpMembers();
+        setUpStaff();
+        setUpEquipment();
+        setUpClasses();
+    }
     
     //Methods
     public String getAllStaff(){
@@ -54,6 +65,57 @@ public class Gym implements GymInterface {
         
     };
     
+    //Set up methods [MWH]
+    private void setUpMembers(){
+        Member memOne = new Member("Morgan","Holmez",21,170,177,GymGoal.BiggerByTheDay);
+        gymMembers.put(memOne.getNum(),memOne);
+        
+        Member memTwo = new Member("Craig","BigArms",20,199,110,GymGoal.SmallerByTheDay);
+        gymMembers.put(memTwo.getNum(),memTwo);
+        
+        Member memThree = new Member("Barry","BigBoy",30,300,100,GymGoal.BiggerByTheDay);
+        gymMembers.put(memThree.getNum(), memThree);
+        
+        Member memFour = new Member("Nigel","OneTickle",34,350,180,GymGoal.SmallerByTheDay);
+        gymMembers.put(memFour.getNum(), memFour);
+        
+    }
+    private void setUpStaff(){
+        Staff staffOne = new Staff("Lando","January",50,100.0,JobRoles.MANAGER);
+        staff.put(staffOne.getNum(), staffOne);
+        
+        Staff staffTwo = new Staff("Craig","Joey",43,64.9,JobRoles.PT);
+        staff.put(staffTwo.getNum(), staffTwo);
+        
+        Staff staffThree = new Staff("Craig","Goodman",23,43,JobRoles.HELPER);
+        staff.put(staffThree.getNum(), staffThree);
+        
+    }
+    private void setUpEquipment(){
+        Equipment epOne = new Equipment("Preacher Machine","Apollo");
+        gymEquipment.add(epOne);
+        
+        Equipment epTwo = new Equipment("Smith","Apollo");
+        gymEquipment.add(epTwo);
+        
+        Equipment epThree = new Equipment("Dumbell Rack","Apollo");
+        gymEquipment.add(epThree);
+        
+        Equipment epFour = new Equipment("Squat Rack","Porc");
+        gymEquipment.add(epFour);
+    }
+    private void setUpClasses(){
+        Class classOne = new Class(10, staff.get(5),2, ClassType.LIFTING);
+        classes.add(classOne);
+        
+        Class classTwo = new Class(15, staff.get(5), 1, ClassType.CORE);
+        classes.add(classTwo);
+        
+        Class classThree = new Class(11, staff.get(5), 2, ClassType.HIIT);
+        classes.add(classThree);
+    }
+    
+ 
     
     
 }
