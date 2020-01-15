@@ -10,6 +10,7 @@ public abstract class Person {
     private String forename;
     private String surname;    
     private int age;
+    private int perNum;
     private static int uniNum = 0;
     
     //Constructor
@@ -17,6 +18,7 @@ public abstract class Person {
         this.forename = forename;
         this.surname = surname;
         this.age = age;
+        perNum = uniNum;
         uniNum++;
     }
    
@@ -35,7 +37,7 @@ public abstract class Person {
     }
     
     public int getNum(){
-        return uniNum;
+        return perNum;
     }
     
     public String toString(){

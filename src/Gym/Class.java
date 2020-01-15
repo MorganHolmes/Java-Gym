@@ -8,6 +8,9 @@ import java.util.ArrayList;
  */
 public class Class {
     //Attribute
+    private int classNum;
+    //Used for the unique class number.
+    private static int classNumbers = 1000;
     private int numOfPeople;
     private Staff staffMember;
     private int numOfHours;
@@ -24,12 +27,24 @@ public class Class {
         this.staffMember = staffMember;
         this.classType = classType;
         this.situation = ClassState.UPCOMING;
+        
+        this.classNum = classNumbers;
+        classNumbers++;
                 
     }
     
     //Methods
-    public void addAttende(Member mem){
-        attendes.add(mem);
+    public boolean addAttende(Member mem){
+        if(attendes.size()+1 > numOfPeople){
+            return false;
+        }else{
+            attendes.add(mem);
+            return true;
+        }
+    }
+    
+    public int getClassNumber(){
+        return classNum;
     }
     
     public void removeAttende(int num){
@@ -84,7 +99,9 @@ public class Class {
         }
     }
     
-    
+    public String toString(){
+        return "Class Number: " + classNum + "\nClass Type: " + ClassType.classTypeToString(classType) + "\nMax Number Of Attendes: " + numOfPeople + "\nCurrent Number Of Attendes: " + attendes.size() + "\nCurrent State: " + ClassState.stateToString(situation) + "\n- Staff Member -\n" + staffMember;
+    }
     
     
 }

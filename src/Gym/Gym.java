@@ -59,11 +59,16 @@ public class Gym implements GymInterface {
         
     }
    
-    public void addClass(){
+    public void addClass(Class newClass){
+        classes.add(newClass);
         
     };
-    public void removeClass(){
-        
+    public void removeClass(int classNum){
+        for(Class x : classes){
+            if(x.getClassNumber() == classNum){
+                classes.remove(x);
+            }
+        }   
     };
     
     public void removeEquipment(){

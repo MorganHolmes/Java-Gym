@@ -11,8 +11,8 @@ public interface GymInterface{
     public void addStaff(Staff newStaff);
     public void removeStaff(int staffNumber);
     
-    public void addClass();
-    public void removeClass();
+    public void addClass(Class newClass);
+    public void removeClass(int x);
     
     public void removeEquipment();
     public void addEquipment();
